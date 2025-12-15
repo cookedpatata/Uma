@@ -1,0 +1,51 @@
+body {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+a{
+    margin: 10px;
+    grid-column: 1 / span 2;
+}
+.container_options {
+    margin: 10px;
+    background-color: cornflowerblue;
+}
+
+.container_calculations {
+    margin: 10px;
+    background-color: cornflowerblue;
+}
+
+.container_stats {
+    margin: 10px;
+    background-color: cornflowerblue;
+}
+
+.container {
+    width: 520px;
+    height: 500px;
+    background-image: url("img/select_cartas1.png");
+    border-radius: 20px;
+
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 460px 40px;
+}
+
+.container_Selectcards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+img.card {
+    width: 170px;
+    height: 222px;
+    border-radius: 15px;
+}
+
+img.card:hover {
+    width: 175px;
+    height: 227px;
+    border-radius: 15px;
+}
