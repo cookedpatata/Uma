@@ -1,10 +1,14 @@
 body {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 520px auto;
 }
-a{
+
+header{
     margin: 10px;
     grid-column: 1 / span 2;
+    
+    display: flex;
+    justify-content: space-evenly; 
 }
 .container_options {
     margin: 10px;
