@@ -1,6 +1,8 @@
 CREATE database uma;
 
-CREATE TABLE if not exists skills  (
+use uma;
+
+CREATE TABLE skills  (
     nombre VARCHAR (20),
     descipcion VARCHAR (100),
     skill VARCHAR (20),
@@ -12,13 +14,13 @@ CREATE TABLE if not exists skills  (
 )
 ;
 
-CREATE TABLE if not exists efectos  (
+CREATE TABLE efectos  (
     nombre VARCHAR(20),
     descipcion VARCHAR(100)
 )
 ;
 
-CREATE TABLE if not exists cartas  (
+CREATE TABLE cartas  (
     img VARCHAR(20),
     nombre VARCHAR(20),
     rareza VARCHAR(3),
@@ -27,7 +29,7 @@ CREATE TABLE if not exists cartas  (
 )
 ;
 
-CREATE TABLE if not exists skillsCartas (
+CREATE TABLE skillsCartas (
     nomCarta VARCHAR(20),
     nomSkill VARCHAR(20),
 	FOREIGN KEY (nomCarta) REFERENCES cartas(nombre),

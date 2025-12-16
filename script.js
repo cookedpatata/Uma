@@ -4,27 +4,24 @@
 
 imgCards_select()
 
-function cargarEfectosCartas(){
-
-}
-
 //eventos
 let select = document.querySelectorAll('.card')
 let active = null;
 
+//selección de cartas
 select.forEach(img => {
     img.addEventListener('click', () => {
-        if(active===img){
-            if (active.id=='card5')
+        if (active === img) {
+            if (active.id == 'card5')
                 active.src = 'img/cards/card_friend.png'
             else
                 active.src = 'img/cards/card.png'
-            active=null
+            active = null
             return;
         }
 
-        if (active !=null && active != img) {
-            if (active.id=='card5')
+        if (active != null && active != img) {
+            if (active.id == 'card5')
                 active.src = 'img/cards/card_friend.png'
             else
                 active.src = 'img/cards/card.png'
@@ -32,15 +29,26 @@ select.forEach(img => {
 
         img.src = 'img/cards/card_selec.png'
 
-        active=img   
+        active = img
     });
 });
 
+//cargar suports
+function cargarSupports_R() {
+    let c=1;
+    let Selec_Carta;
 
-function imgCards_support() {  
+    Selec_Carta = document.createElement('img');
+    Selec_Carta.src = 'img/supports/support_card_s_' + c+1000 + '.png';
+    Selec_Carta.classList.add('support_card');
+    Selec_Carta.id = 'support_card' + c;
+    document.querySelector('.container_Supportcards').appendChild(Selec_Carta);
 }
+function cargarSupports_SR() {
 
-function imgAtributes() {
+}
+function cargarSupports_SSR() {
+
 }
 
 function imgCards_select() {
@@ -66,5 +74,12 @@ function imgCards_select() {
         }
     }
 }
+
+function cargarEfectosCartas() {
+}
+
+function imgAtributes() {
+}
+
 
 
