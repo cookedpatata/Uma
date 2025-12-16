@@ -169,7 +169,7 @@
             <input type="text" name="nomEfecto"><br>
             descripcion<br>
             <textarea class="description" name="desEfecto"></textarea><br>
-            <input type="submit" name="env_efecto">
+            <input type="submit" name="env_skill">
         </form>
         <form method="post">
             <h1>Skills</h1>
