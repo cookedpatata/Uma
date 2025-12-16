@@ -3,6 +3,7 @@
 //import {skills} from "Cards.js";
 
 imgCards_select()
+//cargarSupports_R()
 
 //eventos
 let select = document.querySelectorAll('.card')
@@ -35,14 +36,16 @@ select.forEach(img => {
 
 //cargar suports
 function cargarSupports_R() {
-    let c=1;
+    let c = 1;
     let Selec_Carta;
-
-    Selec_Carta = document.createElement('img');
-    Selec_Carta.src = 'img/supports/support_card_s_' + c+1000 + '.png';
-    Selec_Carta.classList.add('support_card');
-    Selec_Carta.id = 'support_card' + c;
-    document.querySelector('.container_Supportcards').appendChild(Selec_Carta);
+    while (c < 71) {
+        Selec_Carta = document.createElement('img');
+        Selec_Carta.src = 'img/supports/support_card_s_' + (10000 + c) + '.png';
+        Selec_Carta.classList.add('support_card');
+        Selec_Carta.id = 'support_card_s_' + (10000 + c);
+        document.querySelector('.container_Supportcards').appendChild(Selec_Carta);
+        c++
+    }
 }
 function cargarSupports_SR() {
 

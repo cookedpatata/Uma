@@ -10,10 +10,15 @@ header{
     display: flex;
     justify-content: space-evenly; 
 }
+
 .container_Supportcards {
     margin: 10px;
     background-color: cornflowerblue;
+
+    display: flex;
 }
+
+
 
 .container_calculations {
     margin: 10px;

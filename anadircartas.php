@@ -3,6 +3,14 @@
 
 <head>
     <style>
+        header {
+            margin: 10px;
+            grid-column: 1 / span 2;
+
+            display: flex;
+            justify-content: space-evenly;
+        }
+
         .container {
             display: flex;
             flex-wrap: nowrap;
@@ -61,16 +69,16 @@
     }
 
     if (isset($_POST["env_efecto"])) {
-        if(!isset($_SESSION["cadenaEfectos"])){
-            $_SESSION["cadenaEfectos"].="INSERT INTO efectos VALUES";
+        if (!isset($_SESSION["cadenaEfectos"])) {
+            $_SESSION["cadenaEfectos"] .= "INSERT INTO efectos VALUES";
         }
         $_SESSION["cadenaEfectos"] .= "(\"" . $_POST["nomEfecto"] . "\", 
                                     \"" . $_POST["desEfecto"] . "\"),";
     }
 
     if (isset($_POST["env_skill"])) {
-        if(!isset($_SESSION["cadenaSkills"])){
-            $_SESSION["cadenaSkills"].="INSERT INTO skills VALUES";
+        if (!isset($_SESSION["cadenaSkills"])) {
+            $_SESSION["cadenaSkills"] .= "INSERT INTO skills VALUES";
         }
         $_SESSION["cadenaSkills"] .= "(\"" . $_POST["nomSkill"] . "\",
                                     \"" . $_POST["descripcion"] . "\",
@@ -81,10 +89,18 @@
     if (isset($_POST["env_carta"])) {
     }
     ?>
+    <header>
+        <a href="index.html">Inicio</a>
+        <a href="index.html">Foros</a>
+        <a href="http://localhost/Uma/anadircartas.php">Añadir</a>
+        <div>
+            <input type="checkbox" id="modo_oscuro">
+            <label for="modo_oscuro" id="modo_oscuro">Modo oscuro</label>
+        </div>
+    </header>
 </head>
 
 <body>
-    <a href="index.html">inicio</a>
     <div class="container">
         <form method="post">
             <h1>Cartas</h1>
