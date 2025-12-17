@@ -23,16 +23,15 @@
 
     SQL:<br>
     <?php
-    if (isset($_POST["env_skill"])){
+    if (isset($_POST["env_carta"])){
 
     }
-    if (isset($_POST["env_skill"])){
+    if (isset($_POST["env_efecto"])){
         
     }
     if (isset($_POST["env_skill"])){
         
     }
-    $_SESSION["cadenaSQL"] = "";
     ?>
     <a href="anadircartas.php">volver</a>
 </body>
