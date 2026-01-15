@@ -34,6 +34,15 @@ select.forEach(img => {
     });
 });
 
+//modo oscuro
+let btn_oscuro = document.getElementById('modo_oscuro');
+btn_oscuro.addEventListener('click', () => {
+    if(document.body.className == 'oscuro')
+        document.body.className = 'brillo';
+    else
+        document.body.className = 'oscuro';
+});
+
 //cargar suports
 function cargarSupports_R() {
     let c = 1;

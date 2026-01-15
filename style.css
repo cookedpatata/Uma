@@ -3,12 +3,12 @@ body {
     grid-template-columns: 520px auto;
 }
 
-header{
+header {
     margin: 10px;
     grid-column: 1 / span 2;
-    
+
     display: flex;
-    justify-content: space-evenly; 
+    justify-content: space-evenly;
 }
 
 .container_Supportcards {
@@ -17,8 +17,6 @@ header{
 
     display: flex;
 }
-
-
 
 .container_calculations {
     margin: 10px;
@@ -57,4 +55,8 @@ img.card:hover {
     width: 175px;
     height: 227px;
     border-radius: 15px;
+}
+
+.oscuro {
+    background-color: grey;
 }
