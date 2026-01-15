@@ -70,7 +70,7 @@
     }
 
     if (isset($_POST["env_carta"])) {
-        $_SESSION["cadenaEfectos"] .= "(\"" . $_POST["nomCarta"] . "\", 
+        $_SESSION["cadenaCartas"] .= "(\"" . $_POST["nomCarta"] . "\", 
                                     \"" . $_POST["img"] . "\"),";
     }
 
@@ -154,14 +154,18 @@
                     <img src="../img/types/fri.png">
                 </label>
             </div>
+
             efectos
             <select class="efectos">
-
             </select>
             skills
             <select class="skills">
-
             </select>
+
+            <br>
+            <input type="submit" name="env_carta">
+            <br>
+            <input type="reset" value="Limpiar">
         </form>
         <form method="post">
             <h1>Efectos</h1>
@@ -170,6 +174,8 @@
             descripcion<br>
             <textarea class="description" name="desEfecto"></textarea><br>
             <input type="submit" name="env_efecto">
+            <br>
+            <input type="reset" value="Limpiar">
         </form>
         <form method="post">
             <h1>Skills</h1>
@@ -309,6 +315,8 @@
                 </div>
             </div>
             <input type="submit" name="env_skill">
+            <br>
+            <input type="reset" value="Limpiar">
         </form>
         <form action="datos.php" method="post">
             <input type="submit" name="terminar">
