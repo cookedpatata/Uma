@@ -58,7 +58,7 @@
 
     <?php
     session_start();
-
+    // Inicializar las cadenas de sesión si no existen
     if (!isset($_SESSION["cadenaCartas"])) {
         $_SESSION["cadenaCartas"] = "INSERT INTO cartas VALUES ";
     }
@@ -68,7 +68,7 @@
     if (!isset($_SESSION["cadenaSkills"])) {
         $_SESSION["cadenaSkills"] = "INSERT INTO skills VALUES ";
     }
-
+    // Procesar los formularios enviados
     if (isset($_POST["env_carta"])) {
         $_SESSION["cadenaCartas"] .= "(\"" . $_POST["nomCarta"] . "\", 
                                     \"" . $_POST["img"] . "\"),";
@@ -155,8 +155,12 @@
                 </label>
             </div>
 
-            efectos
+            efecto unico 1
             <select class="efectos">
+            </select>
+
+            efecto unico 2
+            <select class="efectos">    
             </select>
             skills
             <select class="skills">
