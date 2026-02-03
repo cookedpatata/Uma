@@ -16,7 +16,12 @@
             flex-wrap: nowrap;
         }
 
-        form {
+        .cartas {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form#principal_form {
             padding: 10px;
             margin: 5px;
             background-color: lightsteelblue;
@@ -77,10 +82,9 @@
     if (isset($_POST["env_efecto"])) {
         $_SESSION["cadenaEfectos"] .= "(\"" . $_POST["nomEfecto"] . "\", 
                                     \"" . $_POST["desEfecto"] . "\"),";
-        
     }
 
-    if (isset($_POST["env_skill"])) {     
+    if (isset($_POST["env_skill"])) {
         $_SESSION["cadenaSkills"] .= "(\"" . $_POST["nomSkill"] . "\",
                                     \"" . $_POST["descripcion"] . "\",
                                     \"" . $_POST["Skills"] . "\",
@@ -102,76 +106,98 @@
 
 <body>
     <div class="container">
-        <form method="post">
-            <h1>Cartas</h1>
-            imagen<br>
-            <input type="file" name="img"><br>
-            nombre<br>
-            <input type="text" name="nomCarta"><br>
-            rareza<br>
+        <form method="post" class="cartas" id="principal_form">
             <div>
-                <label>
-                    <input type="radio" value="R" name="rareza">
-                    <img src="../img/types/r.png" class="rareza">
-                </label>
-                <label>
-                    <input type="radio" value="SR" name="rareza">
-                    <img src="../img/types/sr.png" class="rareza">
-                </label>
-                <label>
-                    <input type="radio" value="SSR" name="rareza">
-                    <img src="../img/types/ssr.png" class="rareza">
-                </label>
+                <h1>Cartas</h1>
+                imagen<br>
+                <input type="file" name="img"><br>
+                nombre<br>
+                <input type="text" name="nomCarta"><br>
+                rareza<br>
+                <div>
+                    <label>
+                        <input type="radio" value="R" name="rareza">
+                        <img src="../img/types/r.png" class="rareza">
+                    </label>
+                    <label>
+                        <input type="radio" value="SR" name="rareza">
+                        <img src="../img/types/sr.png" class="rareza">
+                    </label>
+                    <label>
+                        <input type="radio" value="SSR" name="rareza">
+                        <img src="../img/types/ssr.png" class="rareza">
+                    </label>
+                </div>
+                tipos
+                <div>
+                    <label>
+                        <input type="radio" value="vel" name="tipos">
+                        <img src="../img/types/vel.png">
+                    </label>
+                    <label>
+                        <input type="radio" value="sta" name="tipos">
+                        <img src="../img/types/sta.png">
+                    </label>
+                    <label>
+                        <input type="radio" value="str" name="tipos">
+                        <img src="../img/types/str.png">
+                    </label>
+                    <label>
+                        <input type="radio" value="gut" name="tipos">
+                        <img src="../img/types/gut.png">
+                    </label>
+                    <label>
+                        <input type="radio" value="wit" name="tipos">
+                        <img src="../img/types/wit.png">
+                    </label>
+                    <label>
+                        <input type="radio" value="tra" name="tipos">
+                        <img src="../img/types/tra.png">
+                    </label>
+                    <label>
+                        <input type="radio" value="fri" name="tipos">
+                        <img src="../img/types/fri.png">
+                    </label>
+                </div>
+
+                efecto unico 1
+                <select class="efectos">
+                </select>
+                <br>
+                efecto unico 2
+                <select class="efectos">
+                </select>
+
+                <br>
+                <br>
+
+                <div>
+                    Efectos
+                    <select id="efectos" class="efectos" name="efecto">
+                    </select>
+                    <input type="button" name="añadir_efecto" id="añadir_efecto" value="Añadir">
+
+                    <ol id="efectos_seleccionados"></ol>
+                </div>
+                <div>
+                    <form method="post">
+                        skills
+                        <select class="skills">
+                        </select>
+                    </form>
+                </div>
+                <div>
+                    <form method="post">
+                        <input type="submit" name="env_carta">
+                        <br>
+                        <input type="reset" value="Limpiar">
+                    </form>
+                </div>
             </div>
-            tipos
-            <div>
-                <label>
-                    <input type="radio" value="vel" name="tipos">
-                    <img src="../img/types/vel.png">
-                </label>
-                <label>
-                    <input type="radio" value="sta" name="tipos">
-                    <img src="../img/types/sta.png">
-                </label>
-                <label>
-                    <input type="radio" value="str" name="tipos">
-                    <img src="../img/types/str.png">
-                </label>
-                <label>
-                    <input type="radio" value="gut" name="tipos">
-                    <img src="../img/types/gut.png">
-                </label>
-                <label>
-                    <input type="radio" value="wit" name="tipos">
-                    <img src="../img/types/wit.png">
-                </label>
-                <label>
-                    <input type="radio" value="tra" name="tipos">
-                    <img src="../img/types/tra.png">
-                </label>
-                <label>
-                    <input type="radio" value="fri" name="tipos">
-                    <img src="../img/types/fri.png">
-                </label>
-            </div>
 
-            efecto unico 1
-            <select class="efectos">
-            </select>
-
-            efecto unico 2
-            <select class="efectos">    
-            </select>
-            skills
-            <select class="skills">
-            </select>
-
-            <br>
-            <input type="submit" name="env_carta">
-            <br>
-            <input type="reset" value="Limpiar">
         </form>
-        <form method="post">
+
+        <form method="post" id="principal_form">
             <h1>Efectos</h1>
             nombre<br>
             <input type="text" name="nomEfecto"><br>
@@ -181,12 +207,23 @@
             <br>
             <input type="reset" value="Limpiar">
         </form>
-        <form method="post">
+
+        <form method="post" id="principal_form">
             <h1>Skills</h1>
             nombre<br>
             <input type="text" name="nomSkill"><br>
             descripcion<br>
             <textarea class="description" name="descripcion"></textarea><br>
+            <div>
+                <label>
+                    <input type="radio" value="R" name="rareza">
+                    <img src="../img/types/r.png" class="rareza">
+                </label>
+                <label>
+                    <input type="radio" value="SR" name="rareza">
+                    <img src="../img/types/sr.png" class="rareza">
+                </label>
+            </div>
             <b>pasivas</b>
             <div>
                 <label>
@@ -267,8 +304,50 @@
                     <img src="../img/skills/debuffview.png">
                 </label>
             </div>
+            <b>debilidades</b>
+            <div>
+                <label>
+                    <input type="radio" class="debilidades" value="acceleration0" name="Skills">
+                    <img src="../img/skills/acceleration0.png">
+                </label>
+                <label>
+                    <input type="radio" class="debilidades" value="climate0" name="Skills">
+                    <img src="../img/skills/climate0.png">
+                </label>
+                <label>
+                    <input type="radio" class="debilidades" value="focus0" name="Skills">
+                    <img src="../img/skills/focus0.png">
+                </label>
+                <label>
+                    <input type="radio" class="debilidades" value="recover0" name="Skills">
+                    <img src="../img/skills/recover0.png">
+                </label>
+                <label>
+                    <input type="radio" class="debilidades" value="speed0" name="Skills">
+                    <img src="../img/skills/speed0.png">
+                </label>
+                <label>
+                    <input type="radio" class="debilidades" value="strategy0" name="Skills">
+                    <img src="../img/skills/strategy0.png">
+                </label>
+                <label>
+                    <input type="radio" class="debilidades" value="track0" name="Skills">
+                    <img src="../img/skills/track0.png">
+                </label>
+            </div>
             <br>
             <div>
+                <b>Pista</b>
+                <div>
+                    <label>
+                        <input type="radio" value="dirt" name="aptitud">
+                        <img src="../img/types/dirt.png" class="aptitudes">
+                    </label>
+                    <label>
+                        <input type="radio" value="turf" name="aptitud">
+                        <img src="../img/types/turf.png" class="aptitudes">
+                    </label>
+                </div>
                 <b>estrategia</b>
                 <div>
                     <label>
@@ -307,27 +386,17 @@
                         <img src="../img/types/long.png" class="aptitudes">
                     </label>
                 </div>
-                <div>
-                    <label>
-                        <input type="radio" value="R" name="rareza">
-                        <img src="../img/types/r.png" class="rareza">
-                    </label>
-                    <label>
-                        <input type="radio" value="SR" name="rareza">
-                        <img src="../img/types/sr.png" class="rareza">
-                    </label>
-                </div>
             </div>
             <input type="submit" name="env_skill">
             <br>
             <input type="reset" value="Limpiar">
         </form>
-        <form action="datos.php" method="post">
+
+        <form action="datos.php" method="post" id="principal_form">
             <input type="submit" name="terminar">
         </form>
     </div>
-
-    <script src="../js/script.js"></script>
+    <script src="../js/form.js"></script>
 </body>
 
 </html>

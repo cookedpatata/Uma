@@ -5,6 +5,7 @@
 imgCards_select()
 //cargarSupports_R()
 
+
 //eventos
 let select = document.querySelectorAll('.card')
 let active = null;
@@ -37,7 +38,7 @@ select.forEach(img => {
 //modo oscuro
 let btn_oscuro = document.getElementById('modo_oscuro');
 btn_oscuro.addEventListener('click', () => {
-    if(document.body.className == 'oscuro')
+    if (document.body.className == 'oscuro')
         document.body.className = 'brillo';
     else
         document.body.className = 'oscuro';
@@ -92,6 +93,8 @@ function cargarEfectosCartas() {
 
 function imgAtributes() {
 }
+
+
 
 
 

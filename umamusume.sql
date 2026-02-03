@@ -77,7 +77,7 @@ CREATE TABLE skillsCartas (
 
 INSERT INTO efectos (id,nombre,descripcion) VALUES 
 (1,'Bonus de amistad','Incrementa la efectividad del entrenamiento de amistad'),
-(2,'estado de animo','Puede aumentar el animo al entrenar juntos'),
+(2,'Estado de animo','Puede aumentar el animo al entrenar juntos'),
 (3,'Bono de velocidad','Aumenta la cantidad de velocidad que ganas al entrenar juntos'),
 (4,'Bono de estamina','Aumenta la cantidad de estamina que ganas al entrenar juntos'),
 (5,'Bono de fuerza','Aumenta la cantidad de fuerza que ganas al entrenar juntos'),

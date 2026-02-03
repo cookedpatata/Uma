@@ -10,10 +10,22 @@ function consulta($pdo, $sql, $colum)
 {
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
-    $c = 0;
+
+    $datos = [];
+
     while ($fila = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $datos[$colum[$c]] = $fila;
+
+        $filaFiltrada = [];
+
+        foreach ($colum as $col) {
+            if (isset($fila[$col])) {
+                $filaFiltrada[$col] = $fila[$col];
+            }
+        }
+
+        $datos[] = $filaFiltrada;
     }
+
     return $datos;
 }
 
